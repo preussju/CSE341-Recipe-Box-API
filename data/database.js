@@ -2,6 +2,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const MongoClient = require('mongodb').MongoClient;
+const dns = require('dns');
+dns.setServers(['8.8.8.8']);
 
 let database;
 
@@ -12,7 +14,7 @@ const initDb = (callback) => {
     }
     MongoClient.connect(process.env.MONGODB_URL)
         .then((client) => {
-            database = client;
+            database = client.db('recipe_box');
             callback(null, database);
         })
         .catch((err) => {
