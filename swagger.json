@@ -23,6 +23,9 @@
     },
     "/categories/": {
       "get": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -34,6 +37,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "parameters": [
           {
@@ -64,6 +70,9 @@
     },
     "/categories/{id}": {
       "get": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "parameters": [
           {
@@ -86,6 +95,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "parameters": [
           {
@@ -123,6 +135,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "parameters": [
           {
@@ -147,6 +162,9 @@
     },
     "/recipes/": {
       "get": {
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -158,6 +176,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
@@ -209,6 +230,9 @@
     },
     "/recipes/{id}": {
       "get": {
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
@@ -231,6 +255,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
@@ -289,6 +316,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
