@@ -8,7 +8,6 @@
   "host": "cse341-recipe-box-api.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
