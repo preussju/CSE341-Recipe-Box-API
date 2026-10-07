@@ -1,6 +1,7 @@
 const mongodb = require('../data/database');
 
 const getAllRecipes = async (req, res) => {
+        //#swagger.tags=['Recipes']
     try {
         const db = mongodb.getDatabase();
         const recipes = await db.collection('recipes').find().toArray();
@@ -12,6 +13,7 @@ const getAllRecipes = async (req, res) => {
 };
 
 const getRecipeById = async (req, res) => {
+         //#swagger.tags=['Recipes']
     try {
         const { ObjectId } = require('mongodb');
         const db = mongodb.getDatabase();
@@ -31,6 +33,7 @@ const getRecipeById = async (req, res) => {
 };
 
 const createRecipe = async (req, res) => {
+            //#swagger.tags=['Recipes']
     try {
         const db = mongodb.getDatabase();
 
@@ -58,6 +61,7 @@ const createRecipe = async (req, res) => {
 };
 
 const updateRecipe = async (req, res) => {
+            //#swagger.tags=['Recipes']
     try {
         const { ObjectId } = require('mongodb');
         const db = mongodb.getDatabase();
@@ -90,6 +94,7 @@ const updateRecipe = async (req, res) => {
 };
 
 const deleteRecipe = async (req, res) => {
+            //#swagger.tags=['Recipes']
     try {
         const { ObjectId } = require('mongodb');
         const db = mongodb.getDatabase();

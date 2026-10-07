@@ -1,6 +1,7 @@
 const mongodb = require('../data/database');
 
 const getAllCategories = async (req, res) => {
+            //#swagger.tags=['Categories']
     try {
         const db = mongodb.getDatabase();
         const categories = await db.collection('categories').find().toArray();
@@ -12,6 +13,7 @@ const getAllCategories = async (req, res) => {
 };
 
 const getCategoryById = async (req, res) => {
+                //#swagger.tags=['Categories']
     try {
         const { ObjectId } = require('mongodb');
         const db = mongodb.getDatabase();
@@ -31,6 +33,7 @@ const getCategoryById = async (req, res) => {
 };
 
 const createCategory = async (req, res) => {
+                //#swagger.tags=['Categories']
     try {
         const db = mongodb.getDatabase();
 
@@ -51,6 +54,7 @@ const createCategory = async (req, res) => {
 };
 
 const updateCategory = async (req, res) => {
+                //#swagger.tags=['Categories']
     try {
         const { ObjectId } = require('mongodb');
         const db = mongodb.getDatabase();
@@ -76,6 +80,7 @@ const updateCategory = async (req, res) => {
 };
 
 const deleteCategory = async (req, res) => {
+                //#swagger.tags=['Categories']
     try {
         const { ObjectId } = require('mongodb');
         const db = mongodb.getDatabase();
