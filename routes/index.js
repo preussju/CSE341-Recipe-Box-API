@@ -5,8 +5,8 @@ router.use('/', require('./swagger'));
 
 router.use('/categories', require('./categories'));
 router.use('/recipes', require('./recipes'));
-
-//router.use('/games', require('./games')); add routes to controller here
+router.use('/users', require('./users'));
+router.use('/ratings', require('./ratings'));
 
 //router.get('/login', passport.authenticate('github'), (req, res) => { }); for oauth
  
