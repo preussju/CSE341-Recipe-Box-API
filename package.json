@@ -4,7 +4,8 @@
     "express": "^5.2.1",
     "mongodb": "^7.7.0",
     "swagger-autogen": "^2.23.7",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "validatorjs": "^3.22.1"
   },
   "name": "cse341-recipe-box-api",
   "version": "1.0.0",

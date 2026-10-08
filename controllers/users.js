@@ -1,4 +1,5 @@
 const mongodb = require('../data/database');
+const { ObjectId } = require('mongodb');
 
 const getAllUsers = async (req, res) => {
     //#swagger.tags=['Users']

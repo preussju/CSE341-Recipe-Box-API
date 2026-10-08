@@ -8,6 +8,11 @@ router.use('/recipes', require('./recipes'));
 router.use('/users', require('./users'));
 router.use('/ratings', require('./ratings'));
 
+router.get('/', (req, res) => { //just so it shows something 
+     //#swagger.tags=['Hello World']
+    (res.send('Hello World'))
+});
+
 //router.get('/login', passport.authenticate('github'), (req, res) => { }); for oauth
  
 // router.get('/logout', function (req, res, next) {                        for oauth

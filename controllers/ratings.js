@@ -1,13 +1,11 @@
 const mongodb = require('../data/database');
+const { ObjectId } = require('mongodb');
 
-const getRatingsByRecipe = async (req, res) => {
+const getAllRatings = async (req, res) => {
     //#swagger.tags=['Ratings']
     try {
         const db = mongodb.getDatabase();
-
-        const ratings = await db.collection('ratings').find({
-            recipeId: new ObjectId(req.params.recipeId)
-        }).toArray();
+        const ratings = await db.collection('ratings').find().toArray();
 
         res.status(200).json(ratings);
     } catch (error) {
@@ -102,7 +100,7 @@ const deleteRating = async (req, res) => {
 };
 
 module.exports = {
-    getRatingsByRecipe,
+    getAllRatings,
     getRatingById,
     createRating,
     updateRating,
