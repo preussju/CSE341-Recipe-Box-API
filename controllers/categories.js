@@ -1,4 +1,22 @@
 const mongodb = require('../data/database');
+const { ObjectId } = require('mongodb');
+
+const validateCategory = (body) => {
+    const errors = [];
+
+    if (typeof body.name !== 'string' || !body.name.trim()) {
+        errors.push('Name is required and must be a non-empty string.');
+    }
+
+    if (
+        typeof body.description !== 'string' ||
+        !body.description.trim()
+    ) {
+        errors.push('Description is required and must be a non-empty string.');
+    }
+
+    return errors;
+};
 
 const getAllCategories = async (req, res) => {
     try {
@@ -13,7 +31,11 @@ const getAllCategories = async (req, res) => {
 
 const getCategoryById = async (req, res) => {
     try {
-        const { ObjectId } = require('mongodb');
+        if (!ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                error: 'Invalid category ID.'
+            });
+        }
         const db = mongodb.getDatabase();
 
         const category = await db.collection('categories').findOne({
@@ -32,32 +54,50 @@ const getCategoryById = async (req, res) => {
 
 const createCategory = async (req, res) => {
     try {
+        const errors = validateCategory(req.body || {});
+
+        if (errors.length > 0) {
+            return res.status(400).json({ errors });
+        }
+
         const db = mongodb.getDatabase();
 
         const category = {
-            name: req.body.name,
-            description: req.body.description,
+            name: req.body.name.trim(),
+            description: req.body.description.trim(),
             createdAt: new Date()
         };
 
         const result = await db.collection('categories').insertOne(category);
 
-        res.status(201).json({
-            id: result.insertedId
-        });
+        res.status(201).json({ id: result.insertedId });
     } catch (error) {
-        res.status(500).json({ error: 'An error occurred while creating the category.' });
+        console.error('Error creating category:', error);
+        res.status(500).json({
+            error: 'An error occurred while creating the category.'
+        });
     }
 };
 
 const updateCategory = async (req, res) => {
     try {
-        const { ObjectId } = require('mongodb');
+        const errors = validateCategory(req.body || {});
+
+        if (errors.length > 0) {
+            return res.status(400).json({ errors });
+        }
+
+        if (!ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                error: 'Invalid category ID.'
+            });
+        }
+
         const db = mongodb.getDatabase();
 
         const category = {
-            name: req.body.name,
-            description: req.body.description
+            name: req.body.name.trim(),
+            description: req.body.description.trim()
         };
 
         const result = await db.collection('categories').updateOne(
@@ -69,15 +109,25 @@ const updateCategory = async (req, res) => {
             return res.status(404).json({ error: 'Category not found.' });
         }
 
-        res.status(200).json({ message: 'Category updated successfully.' });
+        res.status(200).json({
+            message: 'Category updated successfully.'
+        });
     } catch (error) {
-        res.status(500).json({ error: 'An error occurred while updating the category.' });
+        console.error('Error updating category:', error);
+        res.status(500).json({
+            error: 'An error occurred while updating the category.'
+        });
     }
 };
 
 const deleteCategory = async (req, res) => {
     try {
-        const { ObjectId } = require('mongodb');
+        if (!ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                error: 'Invalid category ID.'
+            });
+        }
+       
         const db = mongodb.getDatabase();
 
         const result = await db.collection('categories').deleteOne({
