@@ -19,6 +19,7 @@ const validateCategory = (body) => {
 };
 
 const getAllCategories = async (req, res) => {
+            //#swagger.tags=['Categories']
     try {
         const db = mongodb.getDatabase();
         const categories = await db.collection('categories').find().toArray();
@@ -30,6 +31,7 @@ const getAllCategories = async (req, res) => {
 };
 
 const getCategoryById = async (req, res) => {
+                //#swagger.tags=['Categories']
     try {
         if (!ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
@@ -53,6 +55,7 @@ const getCategoryById = async (req, res) => {
 };
 
 const createCategory = async (req, res) => {
+                //#swagger.tags=['Categories']
     try {
         const errors = validateCategory(req.body || {});
 
@@ -80,6 +83,7 @@ const createCategory = async (req, res) => {
 };
 
 const updateCategory = async (req, res) => {
+                //#swagger.tags=['Categories']
     try {
         const errors = validateCategory(req.body || {});
 
@@ -121,6 +125,7 @@ const updateCategory = async (req, res) => {
 };
 
 const deleteCategory = async (req, res) => {
+                //#swagger.tags=['Categories']
     try {
         if (!ObjectId.isValid(req.params.id)) {
             return res.status(400).json({

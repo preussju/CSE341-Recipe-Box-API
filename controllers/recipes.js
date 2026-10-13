@@ -45,6 +45,7 @@ const validateRecipe = (body) => {
 
 
 const getAllRecipes = async (req, res) => {
+        //#swagger.tags=['Recipes']
     try {
         const db = mongodb.getDatabase();
         const recipes = await db.collection('recipes').find().toArray();
@@ -56,6 +57,7 @@ const getAllRecipes = async (req, res) => {
 };
 
 const getRecipeById = async (req, res) => {
+         //#swagger.tags=['Recipes']
     try {
         
         if (!ObjectId.isValid(req.params.id)) {
@@ -81,6 +83,7 @@ const getRecipeById = async (req, res) => {
 };
 
 const createRecipe = async (req, res) => {
+            //#swagger.tags=['Recipes']
     try {
         const errors = validateRecipe(req.body || {});
 
@@ -117,6 +120,7 @@ const createRecipe = async (req, res) => {
 };
 
 const updateRecipe = async (req, res) => {
+            //#swagger.tags=['Recipes']
     try {
         const errors = validateRecipe(req.body || {});
 
@@ -167,6 +171,7 @@ const updateRecipe = async (req, res) => {
 };
 
 const deleteRecipe = async (req, res) => {
+            //#swagger.tags=['Recipes']
     try {
         if (!ObjectId.isValid(req.params.id)) {
             return res.status(400).json({
