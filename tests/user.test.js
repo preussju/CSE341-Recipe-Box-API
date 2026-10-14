@@ -36,4 +36,13 @@ describe('GET /user/:id', () => {
     const all = await request(app).get('/user');
     const existingId = all.body[0]._id;
 
-    const res = await
+    const res = await request(app).get(`/user/${existingId}`);
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toHaveProperty('_id', existingId);
+  });
+
+  it('should return 404 for a non-existent id', async () => {
+    const res = await request(app).get('/user/000000000000000000000000');
+    expect(res.statusCode).toBe(404);
+  });
+});
