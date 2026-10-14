@@ -6,8 +6,8 @@ const validation = require('../middleware/validate');
 router.get('/', ratingsController.getAllRatings);
 router.get('/:id', ratingsController.getRatingById);
 
-router.post('/', ratingsController.createRating);
-router.put('/:id', ratingsController.updateRating);
+router.post('/', validation.validateRecipe, ratingsController.createRating);
+router.put('/:id', validation.validateRecipe, ratingsController.updateRating);
 
 router.delete('/:id', ratingsController.deleteRating);
 
