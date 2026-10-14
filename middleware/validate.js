@@ -1,5 +1,6 @@
 const validator = require('../helpers/validate');
 
+
 const validateCategory = (req, res, next) => {
   const validationRule = {
     name: 'required|string',
