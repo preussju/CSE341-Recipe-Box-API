@@ -1,5 +1,6 @@
 
 jest.mock('../data/database', () => ({
+    initDb: jest.fn((callback) => callback(null, {})),
     getDatabase: jest.fn()
 }));
 
