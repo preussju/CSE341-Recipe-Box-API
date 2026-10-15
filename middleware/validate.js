@@ -44,7 +44,7 @@ const validateRecipe = (req, res, next) => {
     title: 'required|string',
     description: 'required|string',
     ingredients: 'required|array',
-    instructions: 'required|array',
+    instructions: 'required|string',
     prepTime: 'required|integer|min:0',
     cookTime: 'required|integer|min:0',
     servings: 'required|integer|min:1',

@@ -16,17 +16,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "jest --runInBand",
     "swagger": "node swagger.js",
     "start": "node start.js"
   },
-=======
-    "test": "jest",
-    "swagger": "node swagger.js",
-    "start": "node server.js"
-    },
->>>>>>> eb873b9783521bf52ec0eb108dc352a22d1cba96
   "repository": {
     "type": "git",
     "url": "git+https://github.com/preussju/CSE341-Recipe-Box-API.git"
