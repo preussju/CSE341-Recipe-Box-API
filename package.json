@@ -1,8 +1,12 @@
 {
   "dependencies": {
+    "cors": "^2.8.6",
     "dotenv": "^18.0.5",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "mongodb": "^7.7.0",
+    "passport": "^0.7.0",
+    "passport-github2": "^0.1.12",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1",
     "validatorjs": "^3.22.1"
@@ -12,10 +16,17 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "jest --runInBand",
     "swagger": "node swagger.js",
     "start": "node start.js"
   },
+=======
+    "test": "jest",
+    "swagger": "node swagger.js",
+    "start": "node server.js"
+    },
+>>>>>>> eb873b9783521bf52ec0eb108dc352a22d1cba96
   "repository": {
     "type": "git",
     "url": "git+https://github.com/preussju/CSE341-Recipe-Box-API.git"
